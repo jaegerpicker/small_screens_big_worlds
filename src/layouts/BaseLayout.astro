@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { activeProfile } from '../data/profiles.ts';
 
 interface Props {
   title: string;
@@ -10,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = 'Mobile engineering, product systems, AI-assisted development, and game-development field notes by Shawn Campbell.',
+  description = activeProfile.meta.description,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 ---

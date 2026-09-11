@@ -3,36 +3,34 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MissionCard from '../components/MissionCard.astro';
 import OrbitMap from '../components/OrbitMap.astro';
+import { activeProfile } from '../data/profiles.ts';
 import { missions } from '../data/site-content';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 5);
+const home = activeProfile.home;
 ---
 
 <BaseLayout
-  title="Security for Small Screens / Big Worlds — Shawn Campbell"
-  description="Application security, AI security research, secure mobile systems, and product engineering by Shawn Campbell."
+  title={home.title}
+  description={home.description}
 >
   <section class="home-hero">
     <div class="hero-copy">
-      <p class="kicker ops-only">Security status / active and operational</p>
-      <p class="kicker direct-only">Application Security and Product Engineering</p>
-      <h1>Security for <span>small screens</span> and big worlds.</h1>
-      <p class="mission-copy">
-        I build and break software systems with a security engineer's bias for
-        evidence. The current focus is AI security, application security, and
-        secure product work across mobile, frontend, and connected systems.
-      </p>
+      <p class="kicker ops-only">{home.kickerOps}</p>
+      <p class="kicker direct-only">{home.kickerDirect}</p>
+      <h1>{home.headlinePrefix} <span>small screens</span> and big worlds.</h1>
+      <p class="mission-copy">{home.missionCopy}</p>
       <div class="hero-actions">
         <a class="primary-action" href="#selected-work">
-          <span class="ops-only">Open the security board</span>
-          <span class="direct-only">View security work</span>
+          <span class="ops-only">{home.primaryActionOps}</span>
+          <span class="direct-only">{home.primaryActionDirect}</span>
         </a>
         <a href={`${base}/blog`}>
-          <span class="ops-only">Read field notes</span>
-          <span class="direct-only">Read security writing</span>
+          <span class="ops-only">{home.secondaryActionOps}</span>
+          <span class="direct-only">{home.secondaryActionDirect}</span>
         </a>
       </div>
     </div>
@@ -44,48 +42,37 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
       <p class="kicker ops-only">Active Mission Board</p>
       <p class="kicker direct-only">Selected Work</p>
       <h2 id="work-heading">
-        <span class="ops-only">Systems worth testing under pressure</span>
-        <span class="direct-only">Security research and secure product work</span>
+        <span class="ops-only">{home.workHeadingOps}</span>
+        <span class="direct-only">{home.workHeadingDirect}</span>
       </h2>
-      <p>
-        Practical work across AI security, application security, mobile systems,
-        and product engineering.
-      </p>
+      <p>{home.workIntro}</p>
     </header>
     <div class="mission-grid">
       {missions.map((mission) => <MissionCard {...mission} />)}
     </div>
   </section>
 
-  <section class="current-course" id="security-lab" aria-labelledby="course-heading">
+  <section class="current-course" id={home.courseId} aria-labelledby="course-heading">
     <div>
       <p class="kicker ops-only">Current Trajectory</p>
       <p class="kicker direct-only">Current Focus</p>
-      <h2 id="course-heading">Making AI security executable</h2>
+      <h2 id="course-heading">{home.courseHeading}</h2>
     </div>
-    <p>
-      I am building vulnerable-agent labs, attack harnesses, and practical
-      writeups around the OWASP LLM Top 10. The goal is to turn vague AI risk
-      into runnable examples, observable failures, and defensible mitigations.
-    </p>
+    <p>{home.courseBody}</p>
   </section>
 
   <section class="systems-rigor" id="systems-rigor">
     <p class="kicker ops-only">Hull Integrity</p>
-    <p class="kicker direct-only">Security Discipline</p>
-    <h2>Security is the product quality baseline.</h2>
-    <p>
-      Threat modeling, permissions, storage, trust boundaries, and failure modes
-      are treated as normal engineering constraints, not after-the-fact review
-      rituals.
-    </p>
+    <p class="kicker direct-only">{home.rigorKickerDirect}</p>
+    <h2>{home.rigorHeading}</h2>
+    <p>{home.rigorBody}</p>
   </section>
 
   {posts.length > 0 && (
     <section class="latest-section" aria-labelledby="latest-heading">
       <p class="kicker ops-only">Latest Transmissions</p>
       <p class="kicker direct-only">Latest Writing</p>
-      <h2 id="latest-heading">Security notes from the field</h2>
+      <h2 id="latest-heading">{home.latestHeading}</h2>
       <div class="post-grid">
         {posts.map((post) => (
           <a class="signal-card" href={`${base}/blog/${post.id}`}>
