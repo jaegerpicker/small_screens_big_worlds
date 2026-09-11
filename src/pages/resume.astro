@@ -1,7 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const publishedPosts = new Set(
+  (await getCollection('blog', ({ data }) => import.meta.env.DEV || !data.draft)).map((post) => post.id),
+);
 
 const capabilities = [
   {
@@ -119,21 +123,21 @@ const signals = [
   {
     label: 'Lab Writeup',
     title: 'Breaking Agents to Build Better Ones: LLM01 Prompt Injection',
-    href: `${base}/blog/breaking-agents-llm01-prompt-injection`,
+    href: publishedPosts.has('breaking-agents-llm01-prompt-injection') ? `${base}/blog/breaking-agents-llm01-prompt-injection` : undefined,
     details:
       'A local RAG prompt-injection lab for testing agent trust boundaries, attack success, and defensive spotlighting.',
   },
   {
     label: 'Field Notes',
     title: 'What I Learned Building Production Agents',
-    href: `${base}/blog/production-agent-attack-surface`,
+    href: publishedPosts.has('production-agent-attack-surface') ? `${base}/blog/production-agent-attack-surface` : undefined,
     details:
       'A practical map of input, tool, memory, and orchestration risks in production agent workflows.',
   },
   {
     label: 'Supply Chain',
     title: 'Supply Chain Attacks on AI Tooling',
-    href: `${base}/blog/shai-hulud-ai-tooling`,
+    href: publishedPosts.has('shai-hulud-ai-tooling') ? `${base}/blog/shai-hulud-ai-tooling` : undefined,
     details:
       'Notes on AI developer environment risk, package compromise response, offline scanners, and provenance gaps.',
   },
@@ -257,13 +261,21 @@ const signals = [
       <p class="kicker direct-only">Selected Writing</p>
       <h2 id="signals-heading">Writing, Research, and Public Artifacts</h2>
       <div class="signals-grid">
-        {signals.map((signal) => (
-          <a class="signal-card" href={signal.href}>
-            <span>{signal.label}</span>
-            <strong>{signal.title}</strong>
-            <p>{signal.details}</p>
-          </a>
-        ))}
+        {signals.map((signal) =>
+          signal.href ? (
+            <a class="signal-card" href={signal.href}>
+              <span>{signal.label}</span>
+              <strong>{signal.title}</strong>
+              <p>{signal.details}</p>
+            </a>
+          ) : (
+            <div class="signal-card">
+              <span>{signal.label} / In progress</span>
+              <strong>{signal.title}</strong>
+              <p>{signal.details}</p>
+            </div>
+          )
+        )}
       </div>
     </section>
 
@@ -524,8 +536,8 @@ const signals = [
     text-decoration: none;
   }
 
-  .signal-card:hover,
-  .signal-card:focus-visible,
+  a.signal-card:hover,
+  a.signal-card:focus-visible,
   .contact-links a:hover,
   .contact-links a:focus-visible {
     border-color: var(--border-strong);
