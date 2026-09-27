@@ -51,10 +51,10 @@ components.
 
 ## Editorial direction
 
-- 50% AI security and application security
-- 25% secure mobile and product engineering
-- 15% AI-assisted development methodology
-- 10% game-development field logs and other learning notes
+- 45% AI security research and red teaming
+- 20% application security and security event response
+- 20% agentic and AI-assisted development methodology
+- 15% engineering leadership and systems practice
 
 Recommended first sequence:
 

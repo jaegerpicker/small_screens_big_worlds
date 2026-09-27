@@ -24,6 +24,6 @@ assert.match(content, /Application Security/);
 assert.match(content, /AI Security Lab/);
 assert.match(blog, /Flight Log/);
 assert.match(blog, /System Deep Dives/);
-assert.match(readme, /50% AI security and application security/);
+assert.match(readme, /45% AI security research and red teaming/);
 
 console.log('projects and editorial tests passed');
