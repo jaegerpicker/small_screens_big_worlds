@@ -22,7 +22,9 @@ assert.match(content, /export const missions/);
 assert.match(content, /Security for/);
 assert.match(content, /Flight proven/);
 assert.match(content, /Active focus/);
-assert.match(content, /Security and Architecture/);
+assert.match(content, /Security Event Response/);
+assert.match(content, /Offensive Security/);
+assert.match(content, /Engineering Leadership/);
 assert.match(content, /AI Security Research/);
 
 console.log('publication shell tests passed');

@@ -7,34 +7,34 @@
 
 export const meta = {
   description:
-    'Application security, AI security research, secure mobile systems, and product engineering by Shawn Campbell.',
+    'AI security research, red teaming, security event response, and engineering leadership by Shawn Campbell.',
   rssDescription:
-    'AI security, application security, secure product engineering, and field notes.',
+    'AI security research, red teaming, agentic development, and security field notes.',
 };
 
 export const home = {
   title: 'Security for Small Screens / Big Worlds — Shawn Campbell',
   description:
-    'Application security, AI security research, secure mobile systems, and product engineering by Shawn Campbell.',
+    'AI security research, red teaming, security event response, and engineering leadership by Shawn Campbell.',
   kickerOps: 'Security status / active and operational',
-  kickerDirect: 'Application Security and Product Engineering',
+  kickerDirect: 'AI Security and Engineering Leadership',
   headlinePrefix: 'Security for',
   missionCopy:
-    "I build and break software systems with a security engineer's bias for evidence. The current focus is AI security, application security, and secure product work across mobile, frontend, and connected systems.",
+    "I build and break software systems with a security engineer's bias for evidence. The current focus is AI security research, red teaming, and response when systems fail, with the engineering leadership to turn findings into practice.",
   primaryActionOps: 'Open the security board',
   primaryActionDirect: 'View security work',
   secondaryActionOps: 'Read field notes',
   secondaryActionDirect: 'Read security writing',
   workHeadingOps: 'Systems worth testing under pressure',
-  workHeadingDirect: 'Security research and secure product work',
+  workHeadingDirect: 'AI security research and red-team work',
   workIntro:
-    'Practical work across AI security, application security, mobile systems, and product engineering.',
+    'Runnable AI security research, red-team practice, security event response, and the engineering leadership that turns findings into shipped controls.',
   courseId: 'security-lab',
   courseHeading: 'Making AI security executable',
   courseBody:
     'I am building vulnerable-agent labs, attack harnesses, and practical writeups around the OWASP LLM Top 10. The goal is to turn vague AI risk into runnable examples, observable failures, and defensible mitigations.',
   rigorKickerDirect: 'Security Discipline',
-  rigorHeading: 'Security is the product quality baseline.',
+  rigorHeading: 'Security is the engineering baseline.',
   rigorBody:
     'Threat modeling, permissions, storage, trust boundaries, and failure modes are treated as normal engineering constraints, not after-the-fact review rituals.',
   latestHeading: 'Security notes from the field',
@@ -42,34 +42,34 @@ export const home = {
 
 export const systems = [
   {
-    id: 'mobile',
-    opsLabel: 'Secure Mobile',
-    directLabel: 'Mobile Application Security',
-    detail: 'Swift, Kotlin, connected devices, storage, permissions, and field trust boundaries.',
-    status: 'Flight proven',
-    href: '#selected-work',
-  },
-  {
-    id: 'product',
-    opsLabel: 'Product Attack Surface',
-    directLabel: 'Product and Frontend Security',
-    detail: 'React, React Native, GraphQL, APIs, auth flows, and reviewable delivery systems.',
-    status: 'Flight proven',
-    href: '#selected-work',
-  },
-  {
     id: 'lab',
     opsLabel: 'AI Security Lab',
     directLabel: 'AI Security Research',
-    detail: 'Executable OWASP LLM labs, prompt injection, agent tooling, and defense experiments.',
+    detail: 'Runnable OWASP LLM Top 10 labs, vulnerable agents, prompt injection, and defense experiments.',
     status: 'Active focus',
     href: '#security-lab',
   },
   {
+    id: 'redteam',
+    opsLabel: 'Red Team',
+    directLabel: 'Offensive Security',
+    detail: 'Application-layer penetration testing, vulnerability research, and proof-of-concept exploits.',
+    status: 'Flight proven',
+    href: '#selected-work',
+  },
+  {
+    id: 'response',
+    opsLabel: 'Event Response',
+    directLabel: 'Security Event Response',
+    detail: 'Triage, containment, and postmortems that turn incidents into durable engineering controls.',
+    status: 'Operational',
+    href: '#selected-work',
+  },
+  {
     id: 'rigor',
     opsLabel: 'Systems Rigor',
-    directLabel: 'Security and Architecture',
-    detail: 'Threat-aware engineering, distributed systems, and technical leadership.',
+    directLabel: 'Engineering Leadership',
+    detail: 'Technical direction, team formation, security standards, and delivery discipline.',
     status: 'Embedded discipline',
     href: '#systems-rigor',
   },
@@ -87,22 +87,22 @@ export const missions = [
     tone: 'cyan',
   },
   {
-    label: '02 / AppSec',
-    directLabel: 'Application Security',
-    title: 'Security reviews that stay close to delivery',
+    label: '02 / Red Team',
+    directLabel: 'Red Team and Response',
+    title: 'Attacker-informed testing that changes engineering priorities',
     summary:
-      'Threat modeling, secure code review, trust boundaries, CI/CD hardening, and practical fixes across product teams.',
+      'Application-layer penetration testing, vulnerability research, proof-of-concept exploits, and the response and postmortem work that follows a real event.',
     status: 'Flight proven',
     href: '/resume',
     tone: 'amber',
   },
   {
-    label: '03 / Secure Product',
-    directLabel: 'Secure Product Engineering',
-    title: 'Mobile and product systems with security built in',
+    label: '03 / Leadership',
+    directLabel: 'Engineering Leadership',
+    title: 'Security practice that survives contact with delivery',
     summary:
-      'Native mobile, React, React Native, GraphQL, and connected-device work grounded in permissions, data flow, and failure modes.',
-    status: 'Flight proven',
+      'Threat modeling, secure development lifecycle, standards, and team formation that keep security inside normal engineering work instead of beside it.',
+    status: 'Embedded discipline',
     href: '/projects',
     tone: 'green',
   },
@@ -111,13 +111,13 @@ export const missions = [
 export const projects = {
   title: 'Security Projects — Small Screens / Big Worlds',
   description:
-    'AI security research, application security, secure product systems, and mobile security work by Shawn Campbell.',
+    'AI security research, red teaming, security event response, and engineering leadership by Shawn Campbell.',
   kickerOps: 'Shipyard / Security Manifest',
   kickerDirect: 'Security Projects and Capabilities',
   headingOps: 'Security work in progress',
-  headingDirect: 'AI security and AppSec work',
+  headingDirect: 'AI security and red-team work',
   intro:
-    'Security sits at the center of this index: runnable AI security research, application security practice, and product engineering with threat models attached.',
+    'Runnable AI security research, red-team practice, and the application security and response work that surrounds them. Platform and product engineering is the depth underneath, not the headline.',
   areas: [
     {
       code: '01',
@@ -125,50 +125,50 @@ export const projects = {
       directLabel: 'AI Security Research',
       status: 'Active focus',
       summary:
-        'Executable OWASP LLM Top 10 labs, vulnerable agents, prompt-injection cases, attacker harnesses, and defense experiments for agentic systems.',
+        'Ten runnable vulnerable agents, one per OWASP LLM Top 10 category, with an attacker payload library, an evaluation harness, a spotlighting defense toggle, and a writeup for each.',
       evidence: ['OWASP LLM Top 10', 'Prompt injection', 'Agent tooling', 'Security writeups'],
     },
     {
       code: '02',
-      opsLabel: 'Application Security',
-      directLabel: 'Application Security',
+      opsLabel: 'Red Team',
+      directLabel: 'Red Team and Offensive Security',
       status: 'Flight proven',
       summary:
-        'Threat modeling, secure code review, trust-boundary analysis, and remediation planning across mobile, frontend, backend, and cloud-connected products.',
-      evidence: ['Threat modeling', 'Secure code review', 'Trust boundaries', 'Remediation'],
+        'Internal red-team operations, application-layer penetration testing, vulnerability research, and proof-of-concept exploit development that turns findings into engineering priorities.',
+      evidence: ['Penetration testing', 'Vulnerability research', 'Exploit PoCs', 'Secure code review'],
     },
     {
       code: '03',
-      opsLabel: 'Secure Product Systems',
-      directLabel: 'Frontend and Product Systems',
+      opsLabel: 'AppSec and Response',
+      directLabel: 'Application Security and Event Response',
       status: 'Flight proven',
       summary:
-        'React, React Native, TypeScript, GraphQL, APIs, and delivery systems designed with auth flows, data exposure, resilience, and maintainability in view.',
-      evidence: ['React and React Native', 'GraphQL', 'Auth flows', 'Distributed systems'],
+        'Threat modeling, trust-boundary analysis, CI/CD hardening, and the triage, containment, and postmortem work that follows a security event.',
+      evidence: ['Threat modeling', 'Trust boundaries', 'Incident triage', 'Postmortems'],
     },
     {
       code: '04',
-      opsLabel: 'Secure Mobile',
-      directLabel: 'Native Mobile',
-      status: 'Flight proven',
+      opsLabel: 'Platform Depth',
+      directLabel: 'Platform and Product Depth',
+      status: 'Supporting evidence',
       summary:
-        'iOS and Android systems built with Swift, Kotlin, Objective-C, Java, and C++, with attention to storage, permissions, offline workflows, sensors, and connected-device trust boundaries.',
-      evidence: ['Native Mobile', 'Permissions', 'Offline behavior', 'Connected products'],
+        'Two decades of distributed IoT, smart-access, cloud, mobile, and API systems in Swift, Kotlin, C++, TypeScript, Go, Python, and GraphQL. This is the working knowledge behind the security work, not a separate practice.',
+      evidence: ['Distributed systems', 'IoT and cloud', 'Native mobile', 'GraphQL and APIs'],
     },
   ],
   caseStudyNote:
-    'Future entries will include role, constraints, decisions, implementation, security assumptions, outcome, screenshots or runnable evidence, and lessons learned. No invented metrics and no inflated claims. Game Lab work stays available as a secondary learning thread.',
+    'Future entries will include role, constraints, decisions, implementation, security assumptions, outcome, screenshots or runnable evidence, and lessons learned. No invented metrics and no inflated claims.',
 };
 
 export const about = {
   lead:
-    "I'm Shawn Campbell, an application security engineer, mobile and product engineer, frontend architect, and technical leader with 26 years of experience building software and engineering teams.",
+    "I'm Shawn Campbell, an AI security researcher, red-team practitioner, and engineering leader with 26 years building software and the teams that ship it, five of them in penetration testing and red-team practice.",
   paragraphs: [
-    'Security is the current center of gravity: AI security research, OWASP LLM Top 10 labs, application security reviews, threat modeling, and secure product engineering across native mobile, React and React Native, connected products, and frontend systems.',
-    'AI-assisted development is part of that process. I use coding agents and generative tools to accelerate research, prototypes, testing, and lab construction, while keeping engineering judgment human. Game development in Godot and Unreal remains a public learning thread, but the main line is security: permissions, storage, trust boundaries, threat modeling, and resilient architecture.',
+    'AI security is the current center of gravity: runnable OWASP LLM Top 10 labs, vulnerable agents, prompt-injection research, and defense experiments, alongside the application security, red-team practice, and event response that surround them.',
+    'Agentic and AI-assisted development is part of the method rather than a separate topic. I build with coding agents and generative tooling and study how they fail: tool-use boundaries, provenance, supply-chain exposure, and the review practice that keeps engineering judgment human. Two decades of product and platform engineering sit underneath all of it as working knowledge, not as the headline.',
   ],
   direction:
-    'Build runnable AI security labs, publish practical security field notes, and keep product engineering experience close enough to make the recommendations usable.',
+    'Build runnable AI security labs, publish practical field notes, respond well when systems fail, and keep engineering leadership close enough to make the recommendations usable.',
 };
 
 export const resume = {
@@ -225,7 +225,7 @@ export const resume = {
 };
 
 export const blog = {
-  description: 'AI security, application security, secure mobile, and AI-assisted development field notes.',
+  description: 'AI security research, red teaming, agentic development, and security field notes.',
   intro:
-    'AI security and application security lead the archive. Secure mobile and product engineering, AI-assisted development, and game-development field logs round it out.',
+    'AI security research and red-team practice lead the archive, with security event response, agentic development methodology, and engineering-leadership notes alongside.',
 };
