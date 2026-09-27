@@ -19,6 +19,7 @@ assert.match(resume, /@media print/);
 assert.match(resume, /100,000 deployed devices/);
 assert.match(resume, /20 engineering teams/);
 assert.match(resume, /SQL injection in a public-facing comments control/);
+assert.match(resume, /OWASP Top 10/);
 assert.match(resume, /Own venture, launched concurrently/);
 // The resume opens in the conventional view for recruiters.
 assert.match(resume, /defaultView="direct"/);
