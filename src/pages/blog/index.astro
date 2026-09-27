@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { activeProfile } from '../../data/profiles.ts';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const isDev = import.meta.env.DEV;
@@ -42,7 +43,7 @@ const formats = [
 ];
 ---
 
-<BaseLayout title="Writing — Small Screens / Big Worlds" description="Mobile, AI-assisted development, game-development, and systems field notes.">
+<BaseLayout title="Writing — Small Screens / Big Worlds" description={activeProfile.blog.description}>
   <section class="blog-index">
     <p class="kicker ops-only">Flight Log / Signal Archive</p>
     <p class="kicker direct-only">Writing</p>
@@ -50,10 +51,7 @@ const formats = [
       <span class="ops-only">Dispatches from the build</span>
       <span class="direct-only">Technical articles and field notes</span>
     </h1>
-    <p class="muted">
-      Mobile and product engineering lead the archive. AI-assisted development,
-      game-development study, and systems-under-stress research round it out.
-    </p>
+    <p class="muted">{activeProfile.blog.intro}</p>
   </section>
 
   <section class="format-grid" aria-label="Article formats">

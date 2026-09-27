@@ -1,44 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { activeProfile } from '../data/profiles.ts';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const publishedPosts = new Set(
   (await getCollection('blog', ({ data }) => import.meta.env.DEV || !data.draft)).map((post) => post.id),
 );
 
-const capabilities = [
-  {
-    label: 'Native Mobile Engineering',
-    details:
-      'Swift, Kotlin, Objective-C, Java, C++, connected devices, offline workflows, and mobile-to-cloud architecture.',
-  },
-  {
-    label: 'React and React Native',
-    details:
-      'Cross-platform products, TypeScript, React, GraphQL, design systems, performance, and frontend delivery at team scale.',
-  },
-  {
-    label: 'Frontend and Product Systems',
-    details:
-      'Accessible product interfaces, API integration, distributed workflows, and architecture shaped by operational constraints.',
-  },
-  {
-    label: 'Engineering Leadership',
-    details:
-      'Principal-level technical direction, team formation, hiring, standards, mentoring, and cross-functional execution.',
-  },
-  {
-    label: 'Connected and Distributed Systems',
-    details:
-      'IoT, smart access, data pipelines, serverless platforms, event-driven systems, AWS, GCP, and backend services.',
-  },
-  {
-    label: 'Security and Systems Rigor',
-    details:
-      'Threat modeling, application security, red-team methodology, secure code review, trust boundaries, and resilient delivery.',
-  },
-];
+const resume = activeProfile.resume;
+const capabilities = resume.capabilities;
 
 const roles = [
   {
@@ -160,7 +131,7 @@ const signals = [
 
 <BaseLayout
   title="Resume — Shawn Campbell"
-  description="Shawn Campbell: mobile and product engineer, frontend architect, React Native leader, and hands-on engineering leader."
+  description={resume.description}
 >
   <article class="resume-dossier">
     <section class="hero-panel">
@@ -168,23 +139,10 @@ const signals = [
         <p class="kicker ops-only">Crew File / Mission Profile</p>
         <p class="kicker direct-only">Professional Profile</p>
         <h1>Shawn Campbell</h1>
-        <p class="role-line">
-          Mobile and Product Engineer, frontend architect, and hands-on
-          engineering leader.
-        </p>
-        <p class="mission-copy">
-          Shawn Campbell has spent 25 years building software, products, and
-          engineering teams. His strongest depth is in native mobile, React and
-          React Native, connected products, frontend systems, and technical
-          leadership. Security remains part of the engineering discipline, while
-          game development in Godot and Unreal is a current learning focus.
-        </p>
+        <p class="role-line">{resume.roleLine}</p>
+        <p class="mission-copy">{resume.summary}</p>
         <ul class="badge-row" aria-label="Mission badges">
-          <li>Native Mobile</li>
-          <li>React Native</li>
-          <li>Frontend Systems</li>
-          <li>Engineering Leadership</li>
-          <li>Connected Products</li>
+          {resume.badges.map((badge) => <li>{badge}</li>)}
         </ul>
       </div>
 
@@ -192,18 +150,12 @@ const signals = [
         <p class="panel-label ops-only">Telemetry</p>
         <p class="panel-label direct-only">Summary</p>
         <dl>
-          <div>
-            <dt>Operating Mode</dt>
-            <dd>Principal IC / technical lead / engineering leader</dd>
-          </div>
-          <div>
-            <dt>Primary Focus</dt>
-            <dd>Native mobile, React Native, frontend, connected products</dd>
-          </div>
-          <div>
-            <dt>Current learning focus</dt>
-            <dd>Game Development with Godot and Unreal Engine</dd>
-          </div>
+          {resume.telemetry.map((item) => (
+            <div>
+              <dt>{item.term}</dt>
+              <dd>{item.value}</dd>
+            </div>
+          ))}
         </dl>
       </aside>
     </section>
@@ -211,7 +163,7 @@ const signals = [
     <section class="dossier-section" aria-labelledby="capabilities-heading">
       <p class="kicker ops-only">Capabilities Matrix</p>
       <p class="kicker direct-only">Core Capabilities</p>
-      <h2 id="capabilities-heading">Mobile, Product, and Engineering Leadership</h2>
+      <h2 id="capabilities-heading">{resume.capabilitiesHeading}</h2>
       <div class="capability-grid">
         {capabilities.map((capability) => (
           <article class="capability-card">

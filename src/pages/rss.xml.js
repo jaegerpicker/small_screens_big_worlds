@@ -1,5 +1,6 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
+import { activeProfile } from '../data/profiles.ts';
 
 export async function GET(context) {
   const posts = (await getCollection('blog', ({ data }) => !data.draft))
@@ -7,7 +8,7 @@ export async function GET(context) {
 
   return rss({
     title: 'Small Screens / Big Worlds',
-    description: 'Mobile engineering, AI-assisted development, game-development, and systems field notes.',
+    description: activeProfile.meta.rssDescription,
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,
