@@ -2,7 +2,7 @@
 title: "Supply Chain Attacks on AI Tooling: Lessons from Shai-Hulud"
 description: "A field report on the npm worm that targeted ~/.claude/, the three scanners I built in response, and what AI infra security needs next."
 pubDate: 2026-05-13
-draft: true
+draft: false
 tags: ["supply-chain", "npm", "shai-hulud", "ai-tooling", "claude-code"]
 ---
 

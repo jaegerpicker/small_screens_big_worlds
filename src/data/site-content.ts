@@ -40,6 +40,19 @@ export const home = {
   latestHeading: 'Security notes from the field',
 };
 
+/*
+ * Short current-focus block on the homepage. Refresh the date and lines
+ * whenever the focus moves; monthly is enough.
+ */
+export const now = {
+  updated: 'September 2026',
+  lines: [
+    'Red-teaming AI features in production and mapping where agent tool use crosses trust boundaries.',
+    'Building the runnable OWASP LLM Top 10 lab: ten vulnerable agents, an attacker payload library, and a spotlighting defense toggle.',
+    'Writing up prompt-injection findings from the RAG lab.',
+  ],
+};
+
 export const systems = [
   {
     id: 'lab',
