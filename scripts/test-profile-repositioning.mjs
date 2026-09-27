@@ -15,6 +15,10 @@ assert.match(content, /AI security researcher/);
 assert.match(content, /Red-Team Methodology/);
 assert.match(content, /Engineering Leadership/);
 assert.match(resume, /@media print/);
+// The resume opens in the conventional view for recruiters.
+assert.match(resume, /defaultView="direct"/);
+assert.match(resume, /data-print-resume/);
+assert.match(resume, /<span class="direct-only">Skills<\/span>/);
 assert.match(resume, /html\[data-view='direct'\]/);
 assert.match(about, /Small Screens \/ Big Worlds/);
 assert.match(about, /about\.lead/);

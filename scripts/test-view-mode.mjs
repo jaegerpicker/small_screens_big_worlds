@@ -18,4 +18,10 @@ assert.equal(resolveViewMode(null, 'direct'), 'direct');
 assert.equal(resolveViewMode(null, 'invalid'), 'ops');
 assert.equal(resolveViewMode(null, null), 'ops');
 
+// A page may set its own default; an explicit query or stored choice still wins.
+assert.equal(resolveViewMode(null, null, 'direct'), 'direct');
+assert.equal(resolveViewMode(null, 'ops', 'direct'), 'ops');
+assert.equal(resolveViewMode('ops', null, 'direct'), 'ops');
+assert.equal(resolveViewMode(null, null, 'nonsense'), 'ops');
+
 console.log('view-mode tests passed');

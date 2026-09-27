@@ -146,6 +146,7 @@ const signals = [
 <BaseLayout
   title="Resume — Shawn Campbell"
   description={resume.description}
+  defaultView="direct"
 >
   <article class="resume-dossier">
     <section class="hero-panel">
@@ -158,6 +159,11 @@ const signals = [
         <ul class="badge-row" aria-label="Mission badges">
           {resume.badges.map((badge) => <li>{badge}</li>)}
         </ul>
+        <p class="resume-actions">
+          <button type="button" class="pdf-button" data-print-resume>
+            Download PDF
+          </button>
+        </p>
       </div>
 
       <aside class="contact-panel" aria-label="Profile telemetry">
@@ -177,7 +183,10 @@ const signals = [
     <section class="dossier-section" aria-labelledby="capabilities-heading">
       <p class="kicker ops-only">Capabilities Matrix</p>
       <p class="kicker direct-only">Core Capabilities</p>
-      <h2 id="capabilities-heading">{resume.capabilitiesHeading}</h2>
+      <h2 id="capabilities-heading">
+        <span class="ops-only">{resume.capabilitiesHeading}</span>
+        <span class="direct-only">Skills</span>
+      </h2>
       <div class="capability-grid">
         {capabilities.map((capability) => (
           <article class="capability-card">
@@ -216,7 +225,10 @@ const signals = [
     <section class="dossier-section" aria-labelledby="early-heading">
       <p class="kicker ops-only">Early Systems Work</p>
       <p class="kicker direct-only">Earlier Experience</p>
-      <h2 id="early-heading">Foundation Layer</h2>
+      <h2 id="early-heading">
+        <span class="ops-only">Foundation Layer</span>
+        <span class="direct-only">Earlier Experience</span>
+      </h2>
       <ol class="early-list">
         {earlySystems.map((item) => <li>{item}</li>)}
       </ol>
@@ -225,7 +237,10 @@ const signals = [
     <section class="dossier-section" aria-labelledby="signals-heading">
       <p class="kicker ops-only">Selected Signals</p>
       <p class="kicker direct-only">Selected Writing</p>
-      <h2 id="signals-heading">Writing, Research, and Public Artifacts</h2>
+      <h2 id="signals-heading">
+        <span class="ops-only">Writing, Research, and Public Artifacts</span>
+        <span class="direct-only">Selected Writing</span>
+      </h2>
       <div class="signals-grid">
         {signals.map((signal) =>
           signal.href ? (
@@ -248,17 +263,47 @@ const signals = [
     <section class="dossier-section contact-panel" aria-labelledby="links-heading">
       <p class="kicker ops-only">Professional Channels</p>
       <p class="kicker direct-only">Links</p>
-      <h2 id="links-heading">Public Channels</h2>
+      <h2 id="links-heading">
+        <span class="ops-only">Public Channels</span>
+        <span class="direct-only">Contact</span>
+      </h2>
       <nav class="contact-links" aria-label="Professional links">
         <a href="https://www.linkedin.com/in/shawnmcampbell">LinkedIn</a>
         <a href="https://github.com/jaegerpicker">GitHub</a>
+        <a href="https://github.com/jaegerpicker/small_screens_big_worlds/tree/main/lab">AI Security Lab</a>
         <a href={`${base}/blog`}>Blog</a>
       </nav>
     </section>
   </article>
+
+<script>
+  const trigger = document.querySelector('[data-print-resume]');
+  trigger?.addEventListener('click', () => window.print());
+</script>
 </BaseLayout>
 
 <style>
+  .resume-actions {
+    margin: 1rem 0 0;
+  }
+
+  .pdf-button {
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--link);
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    padding: 0.5rem 0.9rem;
+    text-transform: uppercase;
+  }
+
+  .pdf-button:hover,
+  .pdf-button:focus-visible {
+    border-color: var(--link);
+  }
+
   .resume-dossier {
     position: relative;
     display: grid;
@@ -602,9 +647,27 @@ const signals = [
   @media print {
     :global(header),
     :global(footer),
-    .signals-grid,
-    .contact-links {
+    .resume-actions {
       display: none !important;
+    }
+
+    /* The writing and links belong in a printed resume. */
+    .signals-grid {
+      display: block !important;
+    }
+
+    .signals-grid .signal-card {
+      border: 0;
+      break-inside: avoid;
+      padding: 0.35rem 0;
+    }
+
+    .contact-links {
+      display: block !important;
+    }
+
+    .contact-links a {
+      margin-right: 1rem;
     }
 
     :global(html),
