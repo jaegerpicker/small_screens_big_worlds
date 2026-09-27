@@ -15,6 +15,8 @@ assert.match(homepage, /small screens/);
 assert.match(homepage, /big worlds/);
 assert.match(homepage, /OrbitMap/);
 assert.match(homepage, /MissionCard/);
+assert.match(homepage, /now-panel/);
+assert.match(content, /export const now/);
 assert.match(orbitMap, /<ul/);
 assert.match(orbitMap, /href=/);
 assert.match(content, /export const systems/);

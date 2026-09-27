@@ -5,6 +5,7 @@ import MissionCard from '../components/MissionCard.astro';
 import OrbitMap from '../components/OrbitMap.astro';
 import { home } from '../data/site-content';
 import { missions } from '../data/site-content';
+import { now } from '../data/site-content';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
@@ -35,6 +36,18 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
       </div>
     </div>
     <OrbitMap />
+  </section>
+
+  <section class="now-panel" aria-labelledby="now-heading">
+    <div class="now-head">
+      <p class="kicker ops-only">Current Position</p>
+      <p class="kicker direct-only">Current Focus</p>
+      <h2 id="now-heading">Now</h2>
+      <p class="now-updated">Updated {now.updated}</p>
+    </div>
+    <ul class="now-list">
+      {now.lines.map((line) => <li>{line}</li>)}
+    </ul>
   </section>
 
   <section class="mission-board" id="selected-work" aria-labelledby="work-heading">
@@ -87,6 +100,46 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 </BaseLayout>
 
 <style>
+  .now-panel {
+    border: 1px solid var(--border);
+    background: var(--bg-panel);
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    padding: 1.25rem 1.4rem;
+  }
+
+  .now-head h2 {
+    font-size: 1.1rem;
+    margin: 0.2rem 0 0;
+  }
+
+  .now-updated {
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    margin: 0.3rem 0 0;
+  }
+
+  .now-list {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .now-list li {
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+
+  @media (min-width: 52rem) {
+    .now-panel {
+      grid-template-columns: minmax(10rem, 14rem) 1fr;
+      gap: 1.5rem;
+    }
+  }
+
   .home-hero {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(24rem, 0.9fr);
