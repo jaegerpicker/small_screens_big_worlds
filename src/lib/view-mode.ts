@@ -7,6 +7,12 @@ export function parseViewMode(value: string | null): ViewMode | null {
 export function resolveViewMode(
   queryMode: string | null,
   storedMode: string | null,
+  pageDefault: string | null = 'ops',
 ): ViewMode {
-  return parseViewMode(queryMode) ?? parseViewMode(storedMode) ?? 'ops';
+  return (
+    parseViewMode(queryMode) ??
+    parseViewMode(storedMode) ??
+    parseViewMode(pageDefault) ??
+    'ops'
+  );
 }

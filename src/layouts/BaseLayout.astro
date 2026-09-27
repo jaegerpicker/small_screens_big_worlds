@@ -7,17 +7,19 @@ import { meta } from '../data/site-content';
 interface Props {
   title: string;
   description?: string;
+  defaultView?: 'ops' | 'direct';
 }
 
 const {
   title,
   description = meta.description,
+  defaultView = 'ops',
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <!doctype html>
-<html lang="en" data-view="ops">
+<html lang="en" data-view={defaultView}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,11 +37,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
           // Storage can be unavailable in privacy-focused browser contexts.
         }
 
+        // The server rendered the page's own default into the attribute.
+        const pageDefault = document.documentElement.dataset.view;
         const mode = isMode(queryMode)
           ? queryMode
           : isMode(storedMode)
             ? storedMode
-            : 'ops';
+            : isMode(pageDefault)
+              ? pageDefault
+              : 'ops';
 
         document.documentElement.dataset.view = mode;
 
