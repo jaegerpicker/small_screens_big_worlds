@@ -22,7 +22,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     <div class="hero-copy">
       <p class="kicker ops-only">{home.kickerOps}</p>
       <p class="kicker direct-only">{home.kickerDirect}</p>
-      <h1>{home.headlinePrefix} <span>small screens</span> and big worlds.</h1>
+      <h1>{home.headline} <span>{home.headlineEmphasis}</span>.</h1>
       <p class="mission-copy">{home.missionCopy}</p>
       <div class="hero-actions">
         <a class="primary-action" href="#selected-work">

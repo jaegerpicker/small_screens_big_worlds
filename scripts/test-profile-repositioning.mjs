@@ -26,7 +26,7 @@ assert.match(resume, /defaultView="direct"/);
 assert.match(resume, /data-print-resume/);
 assert.match(resume, /<span class="direct-only">Skills<\/span>/);
 assert.match(resume, /html\[data-view='direct'\]/);
-assert.match(about, /Small Screens \/ Big Worlds/);
+assert.match(about, /Trust Boundary/);
 assert.match(about, /about\.lead/);
 assert.match(content, /AI-assisted/);
 
@@ -35,6 +35,6 @@ for (const source of [footer, giscus]) {
   assert.doesNotMatch(source, /ai_sec_research/);
 }
 
-assert.match(rss, /Small Screens \/ Big Worlds/);
+assert.match(rss, /Trust Boundary/);
 
 console.log('profile repositioning tests passed');

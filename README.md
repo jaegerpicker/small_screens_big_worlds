@@ -1,4 +1,4 @@
-# Small Screens / Big Worlds
+# Trust Boundary
 
 Shawn Campbell's publication and portfolio for AI security research,
 application security, secure mobile engineering, React and React Native product
