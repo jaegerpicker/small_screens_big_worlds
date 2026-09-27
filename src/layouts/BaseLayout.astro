@@ -2,7 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-import { activeProfile } from '../data/profiles.ts';
+import { meta } from '../data/site-content';
 
 interface Props {
   title: string;
@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = activeProfile.meta.description,
+  description = meta.description,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 ---
