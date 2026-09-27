@@ -162,7 +162,7 @@ export const projects = {
 
 export const about = {
   lead:
-    "I'm Shawn Campbell, an application security engineer, mobile and product engineer, frontend architect, and technical leader with 25 years of experience building software and engineering teams.",
+    "I'm Shawn Campbell, an application security engineer, mobile and product engineer, frontend architect, and technical leader with 26 years of experience building software and engineering teams.",
   paragraphs: [
     'Security is the current center of gravity: AI security research, OWASP LLM Top 10 labs, application security reviews, threat modeling, and secure product engineering across native mobile, React and React Native, connected products, and frontend systems.',
     'AI-assisted development is part of that process. I use coding agents and generative tools to accelerate research, prototypes, testing, and lab construction, while keeping engineering judgment human. Game development in Godot and Unreal remains a public learning thread, but the main line is security: permissions, storage, trust boundaries, threat modeling, and resilient architecture.',
@@ -173,48 +173,53 @@ export const about = {
 
 export const resume = {
   description:
-    'Mission dossier for Shawn Campbell: AI security, secure systems architecture, red-team methodology, and engineering leadership.',
+    'Mission dossier for Shawn Campbell: AI security research, red-team practice, security event response, and engineering leadership.',
   roleLine:
-    'AI security researcher, secure systems architect, red-team practitioner, and hands-on engineering leader.',
+    'AI security researcher, red-team practitioner, and hands-on engineering leader.',
   summary:
-    'Shawn Campbell builds and reviews systems where software, agents, devices, data, and teams intersect. His work centers on secure foundations: AI threat research, application security, distributed platforms, mobile and IoT depth, and leadership that turns risk into clear engineering practice.',
-  badges: ['AI Security', 'Red Team', 'Secure Systems', 'Engineering Leadership', 'Distributed Platforms'],
+    'Twenty-six years building software and engineering teams, five of them in penetration testing and red-team practice. Shawn Campbell works where agents, applications, devices, and the teams shipping them meet: AI threat research, application security, red-team operations, and response when something goes wrong. Two decades of product and platform engineering sit underneath that as working knowledge rather than the headline.',
+  badges: ['AI Security', 'Red Team', 'Security Event Response', 'Engineering Leadership', 'Applied AI Research'],
   telemetry: [
     { term: 'Operating Mode', value: 'Principal IC / technical lead / security partner' },
-    { term: 'Primary Focus', value: 'Agentic AI security, appsec, mobile, IoT, cloud platforms' },
-    { term: 'Signal', value: '25 years building systems, teams, and security practices' },
+    { term: 'Primary Focus', value: 'AI security research, red teaming, security event response, engineering leadership' },
+    { term: 'Signal', value: '26 years building systems and teams, 5 years red teaming' },
   ],
   capabilitiesHeading: 'Security-First Engineering Surface',
   capabilities: [
     {
-      label: 'AI Threat Research',
+      label: 'AI Security Research',
       details:
-        'Agentic attack surface mapping, prompt-injection labs, tool-use risk analysis, and secure AI workflow review.',
-    },
-    {
-      label: 'Security Architecture',
-      details:
-        'Application security assessments, secure API design, threat modeling, GraphQL review, and cloud-native guardrails.',
+        'A runnable OWASP LLM Top 10 lab: ten vulnerable agents, one per category, with an attacker payload library, an evaluation harness, a spotlighting defense toggle, and a writeup for each. Indirect prompt injection through RAG is carried furthest, from attack path to measured defense.',
     },
     {
       label: 'Red-Team Methodology',
       details:
-        'Internal red-team exercises, proof-of-concept exploit development, secure code review, and attacker-informed remediation.',
+        'Internal red-team operations, application-layer penetration testing, vulnerability research, proof-of-concept exploit development, and secure code review that turns findings into engineering priorities.',
     },
     {
-      label: 'Distributed Platforms',
+      label: 'Security Architecture',
       details:
-        'IoT, smart-access, mobile, data pipeline, serverless, and event-driven systems across AWS and GCP environments.',
+        'Threat modeling, application security assessments, secure API and GraphQL design, trust-boundary analysis, and cloud-native guardrails.',
     },
     {
-      label: 'Systems Engineering',
+      label: 'Security Event Response',
       details:
-        'Swift, Kotlin, C++, TypeScript, Go, Python, C#, Java, GraphQL, React, and mobile-to-cloud integration.',
+        'Triage and response for security events, including supply-chain compromise in AI developer tooling, with postmortems turned into durable engineering controls.',
+    },
+    {
+      label: 'Agentic and AI-Assisted Development',
+      details:
+        'Building with coding agents and generative tooling, and the review practice that keeps engineering judgment human: tool-use boundaries, provenance, and failure modes treated as design inputs.',
     },
     {
       label: 'Engineering Leadership',
       details:
-        'Principal-level technical direction, team formation, standards, mentoring, cross-functional execution, and delivery discipline.',
+        'Principal-level technical direction, team formation, security standards, mentoring, and cross-functional execution across security, product, and platform teams.',
+    },
+    {
+      label: 'Platform and Systems Depth',
+      details:
+        'Distributed IoT, smart-access, cloud, and data-pipeline systems across AWS and GCP, built in Swift, Kotlin, C++, TypeScript, Go, Python, Java, and GraphQL.',
     },
   ],
 };
