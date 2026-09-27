@@ -13,12 +13,13 @@ export const meta = {
 };
 
 export const home = {
-  title: 'Security for Small Screens / Big Worlds — Shawn Campbell',
+  title: 'Trust Boundary — Shawn Campbell',
   description:
     'AI security research, red teaming, security event response, and engineering leadership by Shawn Campbell.',
   kickerOps: 'Security status / active and operational',
   kickerDirect: 'AI Security and Engineering Leadership',
-  headlinePrefix: 'Security for',
+  headline: 'Everything interesting happens at the',
+  headlineEmphasis: 'trust boundary',
   missionCopy:
     "I build and break software systems with a security engineer's bias for evidence. The current focus is AI security research, red teaming, and response when systems fail, with the engineering leadership to turn findings into practice.",
   primaryActionOps: 'Open the security board',
@@ -122,7 +123,7 @@ export const missions = [
 ];
 
 export const projects = {
-  title: 'Security Projects — Small Screens / Big Worlds',
+  title: 'Security Projects — Trust Boundary',
   description:
     'AI security research, red teaming, security event response, and engineering leadership by Shawn Campbell.',
   kickerOps: 'Shipyard / Security Manifest',

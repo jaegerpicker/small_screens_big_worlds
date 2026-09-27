@@ -8,11 +8,10 @@ const [header, homepage, orbitMap, content] = await Promise.all([
   readFile(new URL('../src/data/site-content.ts', import.meta.url), 'utf8'),
 ]);
 
-assert.match(header, /Small Screens/);
+assert.match(header, /Trust Boundary/);
 assert.match(header, /Shawn Campbell/);
-assert.match(homepage, /home\.headlinePrefix/);
-assert.match(homepage, /small screens/);
-assert.match(homepage, /big worlds/);
+assert.match(homepage, /home\.headline/);
+assert.match(homepage, /home\.headlineEmphasis/);
 assert.match(homepage, /OrbitMap/);
 assert.match(homepage, /MissionCard/);
 assert.match(homepage, /now-panel/);
@@ -21,7 +20,7 @@ assert.match(orbitMap, /<ul/);
 assert.match(orbitMap, /href=/);
 assert.match(content, /export const systems/);
 assert.match(content, /export const missions/);
-assert.match(content, /Security for/);
+assert.match(content, /trust boundary/);
 assert.match(content, /Flight proven/);
 assert.match(content, /Active focus/);
 assert.match(content, /Security Event Response/);

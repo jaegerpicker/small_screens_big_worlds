@@ -7,7 +7,7 @@ export async function GET(context) {
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   return rss({
-    title: 'Small Screens / Big Worlds',
+    title: 'Trust Boundary',
     description: meta.rssDescription,
     site: context.site,
     items: posts.map((post) => ({
