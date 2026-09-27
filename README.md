@@ -42,54 +42,19 @@ Supported formats:
 
 Existing posts without `format` remain valid and render as general field notes.
 
-## Site profiles
+## Site copy
 
-The site can present one of two professional profiles. The design, routes,
-posts, experience history, and Ops/Direct views are shared. The positioning
-copy on the homepage, Projects, About, resume, blog intro, and feed changes.
-
-| Profile        | Leads with                                              |
-| -------------- | ------------------------------------------------------- |
-| `security`     | AI security, application security, secure product work |
-| `mobile-games` | Native mobile, React products, game development         |
-
-All profile copy lives in `src/data/profiles.ts`. Both profiles must define the
-same fields, and `npm run test:site-profile` fails if they drift.
-
-**Switch the live site** by changing `DEFAULT_PROFILE` in
-`src/data/active-profile.ts` and merging to `main`.
-
-**Preview a profile locally** without editing anything:
-
-```bash
-SITE_PROFILE=mobile-games npm run dev
-SITE_PROFILE=security npm run build
-```
-
-An unknown `SITE_PROFILE` value logs a warning and falls back to the default.
+All positioning copy lives in `src/data/site-content.ts`: the homepage, Projects,
+About, resume, blog intro, and feed descriptions. The design, routes, posts,
+experience history, and Ops/Direct views live with their own pages and
+components.
 
 ## Editorial direction
-
-Security profile:
 
 - 50% AI security and application security
 - 25% secure mobile and product engineering
 - 15% AI-assisted development methodology
 - 10% game-development field logs and other learning notes
-
-Recommended first sequence:
-
-1. What I Learned Building Production Agents
-2. Breaking Agents: LLM01 Prompt Injection
-3. Shai-Hulud and AI Tooling Security
-4. Secure Mobile Product Patterns Worth Keeping
-
-Mobile and game development profile:
-
-- 50% mobile and product engineering
-- 20% AI-assisted development
-- 20% game-development field logs
-- 10% security and systems rigor
 
 Recommended first sequence:
 
